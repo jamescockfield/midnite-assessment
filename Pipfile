@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+sqlalchemy = "*"
+flask-sqlalchemy = "*"
+flask-injector = "*"
+pydantic = "*"
+
+[dev-packages]
+pytest = "*"
+pytest-cov = "*"
+
+[requires]
+python_version = "3.13"
+
+[scripts]
+dev = "python app.py"
+event = "curl -XPOST http://127.0.0.1:5000/event -H 'Content-Type: application/json' -d '{\"type\": \"deposit\", \"amount\": \"42.00\", \"user_id\": 1, \"t\":0}'"
+test = "pytest test/ -v"
